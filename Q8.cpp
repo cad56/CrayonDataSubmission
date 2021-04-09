@@ -1,8 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
-//Define N here is the
-//number of blocks of 
-//space is required
+#include<bits/stdc++.h>
+//Define N here as size the number of blocks of that are required
+
+
+using namespace std;
 
 #define size 10 
 int c;
@@ -25,20 +27,20 @@ void initial()
 void insert(int val)
 {
     //creating a newnode with value
-    struct node *newNode = malloc(sizeof(struct node));
+    struct node* newNode = (struct node*)malloc(sizeof(struct node));
     newNode->d = val;
     newNode->nxt = NULL;
 
-    //calculate hash key
+    //calculating the block which it belongs to 
     int k = val % size;
 
     //check if chain[k] is empty
     if(chain[k] == NULL)
-        chain[k] = newNode;
-    //collision
+        chain[k] = newNode;//If there is no node in the block till now add this node 
+    
     else
     {
-        //add the node at the end of chain[k].
+        //If there us a already a list of nodes(may be 1) add the node at the end of that list of nodes.
         struct node *tmp = chain[k];
         while(tmp->nxt)
         {
@@ -55,7 +57,7 @@ struct node* merge(struct node* l, struct node* r)
     struct node* p = &h;
     while(l && r)
     {
-        if(l->d <= r->d) //collect left first when left and right are equal;
+        if(l->d <= r->d) //collect left first when left and right are equal same as merge of merge sort
         {
             p->nxt = l;
             l = l->nxt;
@@ -89,7 +91,6 @@ struct node* sortList(struct node* h)
 void sorteachmemoryspace()
 {
     int j;
-
     for(j = 0; j < size; j++)
     {
         struct node *tmp = chain[j];
@@ -177,55 +178,38 @@ int main()
 {
     //initial array of list to NULL
     initial();
-
-    insert(92);
-    insert(59);
-    insert(76);
-    insert(65);
-    insert(88);
-    insert(100);
-    insert(91);
-    insert(53);
-    insert(52);
-    insert(32);
-    insert(66);
-    insert(87);
-    insert(95);
-    insert(72);
-    insert(38);
-    insert(47);
     
-    c = 16;
+    
+    int c;
+    cin >> c;
+    
+    int inputarr[c];
+    
+    for(int i = 0;i < c;i++)
+    {
+        cin >> inputarr[i];
+        insert(inputarr[i]);
+    }
     
     sorteachmemoryspace();
 
     print();
     
-    int arr[c];
-
-    
-    for(int j = 0;j < c;j++)
-    {
-        arr[j] = 0;
-        //printf("%d ",arr[j]);
-    }
-    
-    getsortedarrayaftersems(arr);
+    getsortedarrayaftersems(inputarr);
     
     
     for(int j = 0;j < c;j++)
     {
-      printf("%d ",arr[j]);
+      printf("%d ",inputarr[j]);
     }
     
     printf("\n");
     
-    int n = sizeof(arr) / sizeof(arr[0]);
-    quickSort(arr, 0, c - 1);
+    quickSort(inputarr, 0, c - 1);
     
     for(int j = 0;j < c;j++)
     {
-      printf("%d ",arr[j]);
+      printf("%d ",inputarr[j]);
     }
     
     printf("\n");
