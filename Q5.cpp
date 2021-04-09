@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -61,8 +62,9 @@ void dataset(node* head)
 
 	while (temp != NULL) {
 
-		cout << temp->d
-			<< " -> ";
+		cout << temp->d;
+		if(temp->nxt != NULL)
+			cout << " -> ";
 		temp = temp->nxt;
 	}
 }
@@ -134,8 +136,7 @@ int main()
 
 	// Merge the two lists
 	// in a single list
-	h1 = listmerge(&h1,
-					&h2);
+	h1 = listmerge(&h1,&h2);
 
 	// Sort the unsorted merged list
 	listsort(&h1);
