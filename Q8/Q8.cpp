@@ -188,28 +188,28 @@ int main()
     for(int i = 0;i < c;i++)
     {
         cin >> inputarr[i];
-        insert(inputarr[i]);
+        insert(inputarr[i]);//Get the elements of the array and insert them into the boxes 
     }
     
-    sorteachmemoryspace();
+    sorteachmemoryspace(); //To sort each memory box seperately 
 
-    print();
+    print();//Printing how the boxes look after elements in each block are sorted 
     
-    getsortedarrayaftersems(inputarr);
+    getsortedarrayaftersems(inputarr);//Get the array after inserting all the sorted elements of the boxes 
     
     
     for(int j = 0;j < c;j++)
     {
-      printf("%d ",inputarr[j]);
+      printf("%d ",inputarr[j]);//Printing the above generated arr 
     }
     
     printf("\n");
     
-    quickSort(inputarr, 0, c - 1);
+    quickSort(inputarr, 0, c - 1);//Using quick sort to sort this array 
     
     for(int j = 0;j < c;j++)
     {
-      printf("%d ",inputarr[j]);
+      printf("%d ",inputarr[j]);//Output the final sorted array 
     }
     
     printf("\n");
