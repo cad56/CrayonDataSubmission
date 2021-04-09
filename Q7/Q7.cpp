@@ -146,7 +146,7 @@ bool issorted(int arr[],int n)
     
     for(int i = 0;i < n-1;i++)
     {
-        if(arr[i] > arr[i+1])
+        if(arr[i] > arr[i+1])//basic sorting condition if i < j a[i] <= a[j] if its a[i] > a[j] return false 
             return false;
     }
     
@@ -158,8 +158,8 @@ bool issorted(int arr[],int n)
 int getMax(int arr[], int n)
 {
     int mx = arr[0];
-    for (int i = 1; i < n; i++)
-        if (arr[i] > mx)
+    for (int i = 1; i < n; i++)//Initialize max to first element and then updating it comparing it with each element 
+        if (arr[i] > mx)//if that ele is greater then it will be max 
             mx = arr[i];
     return mx;
 }
@@ -178,27 +178,27 @@ int main()
     
     for(int i = 0;i < cnt;i++)
     {
-        cin >> inputarr[i];
+        cin >> inputarr[i];  //Get the elements of the array 
     }
     
-    int m = getMax(inputarr, cnt);
+    int m = getMax(inputarr, cnt);//Get the maxelement to have an estimate of how many places you have to move 
     
     for (expo = 1; m / expo > 0; expo *= 10)
     {
-        init();
+        init();//For each place part initialize the array of lists 
         for(int i = 0;i < cnt;i++)
         {
-            insert(inputarr[i]);
+            insert(inputarr[i]);//same as que assign into therir respective list acc to formula given in inserts code 
         }
-        sorteachmemoryspace();
-        print();
-        getsortedarrayaftersems(inputarr);
+        sorteachmemoryspace();//Sort each of that array of lists
+        print();//show them as of now for reference 
+        getsortedarrayaftersems(inputarr);//get that array 
         for(int i = 0;i < cnt;i++)
         {
           printf("%d ",inputarr[i]);
         }
         printf("\n");
-        if(issorted(inputarr,cnt))
+        if(issorted(inputarr,cnt))//If it is already sorted no need to go one more digit stop there array is sorted
             break;
     }
 
