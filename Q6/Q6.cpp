@@ -10,11 +10,12 @@ struct Node {
 };
 
 /* Function to find the median of the linked list */
+//We basically used 2 pointer approach one 
 void printMidean(Node* head)
 {
   Node* s = head;
   Node* f = head;
-  Node* p = head;
+  Node* p = head;//To keep track of the prev node in case no of elements are even 
 
   if (head != NULL) {
     while (f != NULL && f->nxt != NULL) {
