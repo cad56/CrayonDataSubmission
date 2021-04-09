@@ -72,7 +72,9 @@ int main(){
     for (int i = 0; i < n; i++) {
   
 
-        q.push(s[i]);//Storing the char in queue and incrementing its freq in count  array.
+        if(CountofCharaters[s[i] - 'a'] == 0)
+            q.push(s[i]);//Storing the char in queue and incrementing its freq in count  array.
+            
         CountofCharaters[s[i] - 'a']++;
   
         while (!q.empty()) {
